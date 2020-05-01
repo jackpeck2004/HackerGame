@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 
 import time
+from functions.functionList import functions
+from tools.parseInput import parseInput
 
-print("Welcome to capture the flag")
-time.sleep(1)
-print("You will be given a string and from there decode the flag")
-time.sleep(1)
-print("The flag format is as follows: Flag{xxxxxxx}")
-time.sleep(1)
-print("You will be given a set of functions you can use")
-time.sleep(1)
-print("Good Luck.")
+def intro():
+    print("Welcome to capture the flag")
+    time.sleep(1)
+    print("You will be given a string and from there decode the flag")
+    time.sleep(2)
+    print("The flag format is as follows: Flag{xxxxxxx}")
+    time.sleep(2)
+    print("You will be given a set of functions you can use")
+    time.sleep(1)
+    print("Good Luck.")
+    time.sleep(2)
 
 flag = "Flag{thisistheflag}"
 encryptedFlag = None
-
-functions = ["tomare"]
 
 def encrypt(flag, rounds):
     for i in range(rounds):
@@ -23,8 +25,9 @@ def encrypt(flag, rounds):
     return flag
 
 while(encryptedFlag != flag):
-    print("Available functions are:")
+    print("\nAvailable functions are: \n")
     for f in functions:
-        print(f)
-    input("What would you like to do? ")
+        print(">\t{}".format(f))
+    input("\n What would you like to do? ")
+    encryptedFlag = parseInput(input)
 

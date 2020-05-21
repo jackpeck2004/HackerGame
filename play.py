@@ -23,7 +23,10 @@ def intro():
 def encrypt(flag, rounds):
     # Encrypt flag
     encryptionAlgorithm = functions[random.randint(0, len(functions)-1)]
-    flag = getattr(Encode, encryptionAlgorithm)(flag)
+    if(encryptionAlgorithm == "CeaserCypher"):
+        flag = getattr(Encode, encryptionAlgorithm)(flag, random.randint(1, 40))
+    else:
+        flag = getattr(Encode, encryptionAlgorithm)(flag)
 
     if rounds > 1:
         flag = encrypt(flag, rounds - 1)

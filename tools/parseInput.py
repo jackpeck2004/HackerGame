@@ -16,10 +16,8 @@ class Decode():
 
     def CeaserCypher(flag):
         s = int(input("offset: "))
-
         s *= -1
         result = ""
-
         for i in range(len(flag)):
             char = flag[i]
             if(char.isupper()):
@@ -42,9 +40,7 @@ class Encode():
     def CeaserCypher(flag, s="ciao"):
         if(s == "ciao"):
             s = int(input("offset: "))
-
         result = ""
-
         for i in range(len(flag)):
             char = flag[i]
             if(char.isupper()):

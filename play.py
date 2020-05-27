@@ -63,6 +63,9 @@ def main():
         if choice.lower() == "submit":
             # check della risposta
             print("Answer {}".format(encryptedFlag))
+
+            break
+
             pass
 
         encryptedFlag = parseInput(choice, encryptedFlag)

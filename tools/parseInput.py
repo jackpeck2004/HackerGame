@@ -20,6 +20,10 @@ class Decode():
         result = ""
         for i in range(len(flag)):
             char = flag[i]
+            if(char == " "):
+                result += " "
+            if(char == "_"):
+                result += "_"
             if(char.isupper()):
                 result += chr((ord(char) + s-65) % 26 + 65)
             else:
@@ -27,7 +31,8 @@ class Decode():
         return result
 
     def Base64(flag):
-        tmp = base64.b64decode(flag)
+        f = flag.encode('ascii')
+        tmp = base64.b64decode(f)
         tmp = str(tmp)
         tmp.lstrip("'")
         tmp = tmp[2:]
@@ -43,6 +48,10 @@ class Encode():
         result = ""
         for i in range(len(flag)):
             char = flag[i]
+            if(char == " "):
+                result += " "
+            if(char == "_"):
+                result += "_"
             if(char.isupper()):
                 result += chr((ord(char) + s-65) % 26 + 65)
             else:

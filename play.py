@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import time
+import readline
 import random
 from functions.functionList import functions
 from tools.parseInput import parseInput
 from tools.parseInput import Encode
+from tools.myCompleter import MyCompleter
 
 
 def intro():
@@ -35,11 +37,13 @@ def encrypt(flag, rounds):
 
 
 def main():
-    flag = 'la capitale di Italia?'
+    # flag = 'la capitale di Italia?'
+    # flag = 'la_capitale_di_Italia?'
+    flag = 'lacapitalediitalia'
     # flag = "bGEgY2FwaXRhbGUgZGkgSXRhbGlhY2lhb2NpYW9jaWFv"
     encryptedFlag = None
     # answer = "roma"
-    level = 0
+    level = 2
 
     encryptedFlag = encrypt(flag, level)
 
@@ -50,7 +54,12 @@ def main():
         for f in functions:
             print(">\t{}".format(f))
 
+        # choice = input("\n What would you like to do? ")
+        completer = MyCompleter(functions)
+        readline.set_completer(completer.complete)
+        readline.parse_and_bind('tab: complete')
         choice = input("\n What would you like to do? ")
+
         if choice.lower() == "submit":
             # check della risposta
             print("Answer {}".format(encryptedFlag))

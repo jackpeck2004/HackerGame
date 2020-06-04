@@ -47,7 +47,7 @@ def main():
         if choice.lower() == "submit":
             print(("{}Answer the question: {}{}").format(colors.GREEN, colors.END, encryptedFlag))
             ua = input("{}>:\t{}".format(colors.GREEN, colors.END))
-            print("answor")
+            print(ua, answer)
             if ua == answer:
                 print("The answer is correct")
 

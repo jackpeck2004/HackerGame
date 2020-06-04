@@ -13,8 +13,9 @@ def getRandomFlag():
     with open('./questions.json') as fd:
         jd = json.load(fd)
         max = len(jd)-1
-        flag = jd[ random.randint(0, max) ]['question']
-        answer = jd[ random.randint(0, max) ]['answer']
+        pos = random.randint(0, max)
+        flag = jd[ pos  ]['question']
+        answer = jd[ pos ]['answer']
 
 
     return (flag, answer)

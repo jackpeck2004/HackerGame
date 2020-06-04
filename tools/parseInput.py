@@ -1,6 +1,5 @@
 import base64
 
-
 def parseInput(inputFunction, flag):
     choice = inputFunction.split(' ')
     # print("\nYou chose the function", choice[1])
